@@ -20,7 +20,7 @@
 	</tr>
 	<tr valign="top">    	
 		<td colspan="2">
-           	<input type="button" class="button-primary" value="Parse Now" />
+           	<input type="button" id="r2p_parse_now" class="button-primary" value="Parse Now" />
         </td>
 	</tr>
 </table>

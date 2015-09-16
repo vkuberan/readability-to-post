@@ -30,7 +30,7 @@
 	 	update_option( 'r2p_setting_ssl_verify',  'on' );
  }
  $r2p_setting_token 		= get_option('r2p_setting_token', '');	
- $r2p_setting_ssl_verifyc	= get_option('r2p_setting_ssl_verify', 'on');	
+ $r2p_setting_ssl_verifyc	= get_option('r2p_setting_ssl_verify', '');	
 ?>
 <div class="wrap">
 	<h2>Readability Settings</h2>

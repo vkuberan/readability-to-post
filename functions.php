@@ -19,7 +19,9 @@ if( !class_exists('R2P' )) {
 		private function addActions() {	
 			if (is_admin()) {
 				//admin dashboard area in which you can manage the readability to post's settings and other things 
-				add_action('admin_menu', array( $this, 'addAdminInterfaceItems' ) );				
+				add_action('admin_menu', array( $this, 'addAdminInterfaceItems' ) );
+				//add ajax to parse the url
+				add_action( 'admin_enqueue_scripts', array($this, 'addAjax2Page' ) );				
 			}
 		}
 		
@@ -36,6 +38,16 @@ if( !class_exists('R2P' )) {
 		
 		public function r2pParseAndExport() {
 			require_once( 'admin/parseandexport/parseandexport.php' );
+		}
+		
+		public function addAjax2Page() {
+			//include custom css to your plugin
+			wp_register_style('r2pCSS', R2P_PLUGIN_CSS . 'r2pstyle.css');
+			wp_enqueue_style('r2pCSS');			
+			//include custom js to your plugin
+			wp_register_script( 'r2pAH', R2P_PLUGIN_JS . 'r2p.ajax.js' );
+			wp_enqueue_script( 'r2pAH' );
+  			wp_localize_script( 'r2pAH', 'ajax_vars', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		}
 		
 	}
