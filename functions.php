@@ -19,7 +19,7 @@ if( !class_exists('R2P' )) {
 		}
 		
 		public function addAdminInterfaceItems() {
-			$icon_path = R2P_PLUGIN_URL . 'images/icon';
+			$icon_path = R2P_PLUGIN_URL . 'images/icons';
 			add_menu_page('Readability2Post', 'Readability2Post', '', R2P_SLUG, null, $icon_path.'/readability-icon.png');
 			add_submenu_page(R2P_SLUG, 'Settings', 'Settings', 'manage_options', 'r2p_page', 	array(&$this, 'R2PSettings'));
 		}
