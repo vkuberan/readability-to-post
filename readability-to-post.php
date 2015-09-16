@@ -47,6 +47,6 @@ if($IS_WINDOWS) {
 	define("R2P_PLUGIN_PATH", $temp);	
 } else {
 	define("R2P_PLUGIN_PATH", str_replace(R2P_FILENAME,"", __FILE__));
-}
+} 
 include(R2P_PLUGIN_PATH . 'functions.php');
 $initR2P = new R2P();
