@@ -34,25 +34,19 @@ define("R2P_PLUGIN_CSS", 	WP_PLUGIN_URL . "/" . R2P_FOLDER . "/css/" );
 define("R2P_PLUGIN_JS", 	WP_PLUGIN_URL . "/" . R2P_FOLDER . "/js/" );
 define("R2P_PLUGIN_IMAGE",  WP_PLUGIN_URL . "/" . R2P_FOLDER . "/images/" );
 
-$path 		= $_SERVER['REQUEST_URI'];
-$path_length 	= strpos($path, R2P_FILENAME) + strlen(R2P_FILENAME);
-$path 		= substr($path, 0, strpos($path, '?')) . '?page=' . R2P_FOLDER;
+$path 		 = $_SERVER['REQUEST_URI'];
+$path_length = strpos($path, R2P_FILENAME) + strlen(R2P_FILENAME);
+$path 		 = substr($path, 0, strpos($path, '?')) . '?page=' . R2P_FOLDER;
 
 
 define("R2P_ADMIN_PLUGIN_URL", $path);
 	
-if($IS_WINDOWS) {
-	
-	$temp = str_replace(R2P_FILENAME, "", __FILE__);
-	
-	$temp = str_replace("\\", "/", $temp);	//switch direction of slashes
-	
-	define("R2P_PLUGIN_PATH", $temp);
-	
+if($IS_WINDOWS) {	
+	$temp = str_replace(R2P_FILENAME, "", __FILE__);	
+	$temp = str_replace("\\", "/", $temp);	//switch direction of slashes	
+	define("R2P_PLUGIN_PATH", $temp);	
 } else {
 	define("R2P_PLUGIN_PATH", str_replace(R2P_FILENAME,"", __FILE__));
 }
-
 include(R2P_PLUGIN_PATH . 'functions.php');
-
 $initR2P = new R2P();
