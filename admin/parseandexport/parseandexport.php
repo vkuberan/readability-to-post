@@ -15,12 +15,26 @@
 
 <table class="form-table">
 	<tr valign="top">
-    	<th scope="row">URL to Parse</th>
-		<td><input type="text" style="width:350px;" id="r2p_url2parse" name="r2p_url2parse" value="" />&nbsp;<i>e.g http://goo.gl/0tA2a5</i></td>
+    	<th scope="row"><span class="r2plabel">URL to Parse</span></th>
+		<td><input class="r2ptextbox" type="text" style="width:50%;" id="r2p_url2parse" name="r2p_url2parse" value="" />&nbsp;<i>e.g http://goo.gl/0tA2a5</i></td>
 	</tr>
 	<tr valign="top">    	
 		<td colspan="2">
-           	<input type="button" id="r2p_parse_now" class="button-primary" value="Parse Now" />
+        	<input type="button" id="r2p_parse_now" class="button-primary" value="Parse Now" />&nbsp;
+            <span id="show_progressbar_button"><img src="<?php echo R2P_PLUGIN_IMAGE . 'progressbar.gif'; ?>" /></span>        	
         </td>
 	</tr>
 </table>
+
+
+<table class="form-table">
+	<tr valign="top">
+    	<th scope="row"><span class="r2plabel">Page Title</span></th>
+		<td>
+        	<div id="titlewrap">
+		        <input class="r2ptextbox" type="text" name="post_title" size="30" value="Test Title 1" id="title" autocomplete="off">
+            </div>
+        </td>
+	</tr>
+</table>
+

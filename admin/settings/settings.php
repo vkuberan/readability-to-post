@@ -48,11 +48,11 @@
     <form method="post">
 		<?php settings_fields('Readability2Post_Options'); ?>
 		<table class="form-table">
-        	<tr valign="top"><th scope="row">Readability Parser Token</th>
-            	<td><input type="text" style="width:225px;" name="r2p_setting_token" value="<?php echo $r2p_setting_token; ?>" /></td>
+        	<tr valign="top"><th scope="row"><span class="r2plabel">Readability Parser Token</span></th>
+            	<td><input class="r2ptextbox" type="text" style="width:50%;" name="r2p_setting_token" value="<?php echo $r2p_setting_token; ?>" /></td>
 			</tr>
-			<tr valign="top"><th scope="row">Enable SSL Verify Peer:</th>
-            	<td><input type="checkbox" name="r2p_setting_ssl_verify" <?php if ($r2p_setting_ssl_verifyc == 'on') { echo 'checked="checked"'; } ?> />&nbsp;&nbsp;<i>* By default this option have been disabled. Enable this option only if your server supports CURL SSL_VERIFYPEER </i></td>
+			<tr valign="top"><th scope="row"><span class="r2plabel">Enable SSL Verify Peer</span></th>
+            	<td><span"><input type="checkbox" style="margin-top:7px; vertical-align:inherit" name="r2p_setting_ssl_verify" <?php if ($r2p_setting_ssl_verifyc == 'on') { echo 'checked="checked"'; } ?> />&nbsp;&nbsp;<i>* By default this option have been disabled. Enable this option only if your server supports CURL SSL_VERIFYPEER </i></span></td>
 			</tr>            
 		</table>
         <p class="submit">
