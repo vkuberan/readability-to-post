@@ -1,5 +1,10 @@
 <?php
-
+/* Author: Velmurugan Kuberan
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ */
+ 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
@@ -21,11 +26,16 @@ if( !class_exists('R2P' )) {
 		public function addAdminInterfaceItems() {
 			$icon_path = R2P_PLUGIN_URL . 'images/icons';
 			add_menu_page('Readability2Post', 'Readability2Post', '', R2P_SLUG, null, $icon_path.'/readability-icon.png');
-			add_submenu_page(R2P_SLUG, 'Settings', 'Settings', 'manage_options', 'r2p_page', 	array(&$this, 'R2PSettings'));
+			add_submenu_page(R2P_SLUG, 'Settings', 'Settings', 'manage_options', 'r2p_page', 	array(&$this, 'r2pSettings'));
+			add_submenu_page(R2P_SLUG, 'Parse and Export', 'Parse and Export', 'manage_options', 'r2p_page_pe', 	array(&$this, 'r2pParseAndExport'));
 		}
 		
-		public function R2PSettings() {
+		public function r2pSettings() {
 			require_once( 'admin/settings/settings.php' );
+		}
+		
+		public function r2pParseAndExport() {
+			require_once( 'admin/parseandexport/parseandexport.php' );
 		}
 		
 	}
