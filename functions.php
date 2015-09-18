@@ -61,8 +61,7 @@ if( !class_exists('R2P' )) {
 			$api = new RestClient(array(
 				'base_url' => $base_url
 			));
-			$result = $api->get("api/content/v1/parser?url=$url_to_parse&token=$readability_token");	
-					
+			$result = $api->get("api/content/v1/parser?url=$url_to_parse&token=$readability_token");					
 			if( $result->response == '' ) {
 				echo '{ "error": "Something went wrong, Please check your \'Readability Parser Token\' settings."}';
 			}
