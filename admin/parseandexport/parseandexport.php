@@ -40,7 +40,14 @@
 	<tr valign="top">
     	<th scope="row"><span class="r2plabel">Page Content</span></th>
 		<td>
-			<?php wp_editor( $content, 'post_content' ); ?>            
+			<?php 
+				$settings = array(
+					'tinymce' => array(
+						'editor_class' => 'post-content'
+					)
+				);
+				wp_editor( '', 'post_content' ); 
+			?>
         </td>
 	</tr>
 </table>
