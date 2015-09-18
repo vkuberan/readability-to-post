@@ -46,7 +46,7 @@
 						'editor_class' => 'post-content'
 					)
 				);
-				wp_editor( '', 'post_content' ); 
+				wp_editor( '', 'post_content', $settings ); 
 			?>
         </td>
 	</tr>
