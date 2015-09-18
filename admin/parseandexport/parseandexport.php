@@ -40,9 +40,11 @@
 	<tr valign="top">
     	<th scope="row"><span class="r2plabel">Page Content</span></th>
 		<td>
-			<?php 				
-				wp_editor( '', 'post_content' ); 
-			?>
+        	<div style="width:75%;">
+				<?php 				
+                    wp_editor( '', 'post_content' ); 
+                ?>
+            </div>
         </td>
 	</tr>
 </table>
