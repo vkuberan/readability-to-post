@@ -18,8 +18,8 @@ jQuery(document).ready( function($){
 				$('#show_error_msg').css('display', 'block');
 			} else {
 				$('#post_title').val(jsonValue.title);
-				//$('#post_content').val(jsonValue.content);
-				tinyMCE.activeEditor.setContent(jsonValue.content)
+				$('#post_content').val(jsonValue.content);
+				//tinyMCE.activeEditor.setContent(jsonValue.content)
 			}			
 			$('#r2p_parse_now').removeAttr('disabled');
 			$('#show_progressbar_button').css('display', 'none');

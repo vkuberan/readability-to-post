@@ -32,5 +32,10 @@ padding: 3px 8px;
 width:50%;
 font-variant:normal !important;
 }
+.wp-editor-tools, .wp-editor-container {
+    width:70%;
+}
 
-
+html .mceContentBody {
+  max-width: none !important;
+}
