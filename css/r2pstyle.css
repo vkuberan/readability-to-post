@@ -32,7 +32,7 @@ padding: 3px 8px;
 width:50%;
 font-variant:normal !important;
 }
-.post-content{
-width:100%;
+.wp-editor-container {
+    width:50%; // What ever size you want
 }
 
