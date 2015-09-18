@@ -21,7 +21,9 @@ if( !class_exists('R2P' )) {
 				//admin dashboard area in which you can manage the readability to post's settings and other things 
 				add_action('admin_menu', array( $this, 'addAdminInterfaceItems' ) );
 				//add ajax to parse the url
-				add_action( 'admin_enqueue_scripts', array($this, 'addAjax2Page' ) );				
+				add_action( 'admin_enqueue_scripts', array( $this, 'addAjax2Page' ) );
+				//real action takes place here	
+				add_action( 'wp_ajax_trigger_readability', array( $this, 'callReadability' ) );			
 			}
 		}
 		
@@ -50,6 +52,27 @@ if( !class_exists('R2P' )) {
   			wp_localize_script( 'r2pAH', 'ajax_vars', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		}
 		
+		public function callReadability() {
+			require 'lib/restclient.php';			
+			$base_url          = 'https://www.readability.com/';
+			$url_to_parse  	   = isset($_REQUEST['posturl']) ? urlencode( $_REQUEST['posturl'] ) : '';
+			$readability_token = get_option('r2p_setting_token', '');
+			$endpoint_url      = $base_url . "api/content/v1/parser?url=$url_to_parse&token=$readability_token";
+			$api = new RestClient(array(
+				'base_url' => $base_url
+			));
+			$result = $api->get("api/content/v1/parser?url=$url_to_parse&token=$readability_token");	
+			/*print '<pre>';
+			print_r($result);
+			print '</pre>';*/		
+			if( $result->response == '' ) {
+				echo '{ "error": "Something went wrong, Please check your \'Readability Parser Token\' settings."}';
+			}
+			else { 
+				echo $result->response;
+			}
+			die;
+		}
 	}
 }
 

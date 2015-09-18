@@ -3,11 +3,20 @@ height:30px;
 float:left;
 }
 #show_progressbar_button {
-display:block; 
 float:left;
 padding-left:20px;
 margin-top:8px;
 display:none;
+}
+#show_error_msg {
+float:left;
+padding-left:20px;
+display:none;
+}
+#inner_error_msg{
+color:#F00;
+padding-left:10px;
+padding-right:10px;
 }
 .form-table th {
 padding-top:15px;
@@ -20,7 +29,10 @@ height:32px;
 line-height:100%;
 outline: 0 none;
 padding: 3px 8px;
-width:80%;
+width:50%;
 font-variant:normal !important;
+}
+#post_content{
+width:100%;
 }
 
