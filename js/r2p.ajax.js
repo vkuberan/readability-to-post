@@ -1,5 +1,6 @@
 //author: Vinothkumar Parthasarathy
 var jsonValue = '';
+var post_id = '';
 jQuery(document).ready( function($){
 	/*this section of code is used to call parse functionality */	
 	$("#r2p_parse_now").bind("click", function() {
@@ -52,7 +53,7 @@ jQuery(document).ready( function($){
           data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content},
           url: ajax_vars.ajaxurl,
           success: function(value) {
-			alert(value)
+			
 			$('#r2p_save_post').removeAttr('disabled');
 			$('#show_progressbar_sp').css('display', 'none');
           }

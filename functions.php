@@ -81,7 +81,7 @@ if( !class_exists('R2P' )) {
   				'post_content'  => $post_content,
   				'post_status'   => 'publish',
   				'post_author'   => 1,
-  				'post_category' => array( 5579 )
+  				'post_category' => array( 55579 )
 			);
 			
 			$result = wp_insert_post( $save_post );
