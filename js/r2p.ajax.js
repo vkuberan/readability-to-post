@@ -1,6 +1,7 @@
 //author: Vinothkumar Parthasarathy
 var jsonValue = '';
-jQuery(document).ready( function($){	
+jQuery(document).ready( function($){
+	/*this section of code is used to call parse functionality */	
 	$("#r2p_parse_now").bind("click", function() {
 		$('#r2p_parse_now').attr('disabled', 'disabled');
 		$('#show_progressbar_button').css('display', 'block');
@@ -28,5 +29,27 @@ jQuery(document).ready( function($){
           }
         });
 		
+	});
+	
+	/*this section of code is used to call post functionality */	
+	$("#r2p_save_post").bind("click", function() {
+
+		$('#r2p_save_post').attr('disabled', 'disabled');
+		$('#show_progressbar_sp').css('display', 'block');
+		$('#show_sp_error_msg').css('display', 'none');
+		var sp_title   = $('#post_title').val();
+		var sp_content = $('#post_content').val();
+
+		$.ajax({
+          type:'POST',
+          data:{action:'trigger_savepost', title: sp_title, content: sp_content},
+          url: ajax_vars.ajaxurl,
+          success: function(value) {
+			alert(value)
+			$('#r2p_save_post').removeAttr('disabled');
+			$('#show_progressbar_sp').css('display', 'none');
+          }
+        });		
+
 	});
 });

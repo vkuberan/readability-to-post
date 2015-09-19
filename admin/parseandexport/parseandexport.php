@@ -29,7 +29,16 @@
 
 
 <table class="form-table">
-	<tr valign="top">
+
+    <tr valign="top">    	
+		<td colspan="2">
+        	<input type="button" id="r2p_save_post" class="button-primary" value="Save Post" />&nbsp;
+            <span id="show_progressbar_sp"><img src="<?php echo R2P_PLUGIN_IMAGE . 'progressbar.gif'; ?>" /></span>
+            <span id="show_sp_error_msg"></span>        	
+        </td>
+	</tr>
+	
+    <tr valign="top">
     	<th scope="row"><span class="r2plabel">Page Title</span></th>
 		<td>
         	<div id="titlewrap">

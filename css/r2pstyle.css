@@ -18,6 +18,29 @@ color:#F00;
 padding-left:10px;
 padding-right:10px;
 }
+
+#r2p_save_post {
+height:30px;
+float:left;
+}
+#show_progressbar_sp {
+float:left;
+padding-left:20px;
+margin-top:8px;
+display:none;
+}
+#show_sp_error_msg {
+float:left;
+padding-left:20px;
+display:none;
+}
+#inner_sp_error_msg{
+color:#F00;
+padding-left:10px;
+padding-right:10px;
+}
+
+
 .form-table th {
 padding-top:15px;
 }
