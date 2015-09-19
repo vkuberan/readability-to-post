@@ -44,6 +44,7 @@ jQuery(document).ready( function($){
 		var sp_content = '';
 		var sp_author = $('#post_author').val();
 		var sp_category = $("#post_category").val();
+		var sp_excerpt  = $("#post_excerpt").val();
 		
 		if( tinymce.editors.length >= 1 ) {
 			sp_content = tinyMCE.activeEditor.getContent();
@@ -57,7 +58,7 @@ jQuery(document).ready( function($){
 		
 		$.ajax({
           type:'POST',
-          data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content, post_author: sp_author, post_category: sp_category, post_status: sp_post_status, post_date: sp_post_date, post_tag: sp_post_tag},
+          data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content, post_excerpt: sp_excerpt, post_author: sp_author, post_category: sp_category, post_status: sp_post_status, post_date: sp_post_date, post_tag: sp_post_tag},
           url: ajax_vars.ajaxurl,
           success: function(value) {
 			  alert(value);

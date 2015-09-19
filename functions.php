@@ -76,26 +76,31 @@ if( !class_exists('R2P' )) {
 			$post_status    = isset($_POST['post_status']) ? $_POST['post_status'] : '';
 			$post_title  	= isset($_POST['post_title']) ? wp_strip_all_tags( $_POST['post_title'] ) : '';
 			$post_content  	= isset($_POST['post_content']) ? $_POST['post_content'] : '';
+			$post_excerpt  	= isset($_POST['post_excerpt']) ? $_POST['post_excerpt'] : '';
 			$post_author  	= isset($_POST['post_author']) ? trim($_POST['post_author']) : 1; //if author is not selected default to the admin => 1
 			$post_category  = isset($_POST['post_category']) ? $_POST['post_category'] : ''; //if category is not selected default to the admin => 1
 			$post_tag     	= isset($_POST['post_tag']) ? $_POST['post_tag'] : ''; //if category is not selected default to the admin => 1
-			print_r($_POST);
-			exit;
+			/*print_r($_POST);
+			exit;*/
 			if ($post_category == '') {
 				$save_post = array(
+					'post_status'	=> $post_status,
 					'post_title'    => $post_title,
 					'post_content'  => $post_content,
-					'post_status'   => 'publish',
+					'post_excerpt'	=> $post_excerpt,
 					'post_author'   => $post_author,
-					'post_category' => null
+					'post_category' => null,
+					'tags_input'	=> $post_tag
 				);
 			} else {
 				$save_post = array(
+					'post_status'	=> $post_status,				
 					'post_title'    => $post_title,
 					'post_content'  => $post_content,
-					'post_status'   => 'publish',
+					'post_excerpt'	=> $post_excerpt,					
 					'post_author'   => $post_author,
-					'post_category' => $post_category
+					'post_category' => $post_category,
+					'tags_input'	=> $post_tag					
 				);
 			}
 			
