@@ -51,7 +51,7 @@
 	<tr valign="top">
     	<th scope="row"><span class="r2plabel">Post Date</span></th>
 		<td>
-        	<input type="checkbox" name="post_date" id="post_date" />&nbsp;&nbsp;<strong><span id="article_date"></span></strong><br /><strong><em>Check if you want to use Article's date as the Blog Post date ir uncheck to use the current date. <br />If the article doesn't have a date, then the current date will be used instead.</em></strong>
+        	<input type="checkbox" name="post_date" id="post_date" />&nbsp;&nbsp;<strong><span id="article_date"></span></strong><br /><strong><em>Check if you want to use Article's date as the Blog Post date or uncheck to use the current date. <br />If the article doesn't have a date, then the current date will be used instead.</em></strong>
         </td>
 	</tr>        	
     <tr valign="top">
