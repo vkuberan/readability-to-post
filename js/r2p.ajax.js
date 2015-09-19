@@ -25,6 +25,7 @@ jQuery(document).ready( function($){
 					$('#post_content').val(jsonValue.content);
 				}
 				$('#post_excerpt').html(jsonValue.excerpt);
+				$('#article_date').html(jsonValue.date_published);				
 			}			
 			$('#r2p_parse_now').removeAttr('disabled');
 			$('#show_progressbar_button').css('display', 'none');

@@ -84,7 +84,7 @@ if( !class_exists('R2P' )) {
 					'post_content'  => $post_content,
 					'post_status'   => 'publish',
 					'post_author'   => $post_author,
-					'post_category' => array()
+					'post_category' => null
 				);
 			} else {
 				$save_post = array(

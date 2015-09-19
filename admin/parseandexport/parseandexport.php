@@ -29,7 +29,6 @@
 
 
 <table class="form-table">
-
     <tr valign="top">    	
 		<td colspan="2">
         	<input type="button" id="r2p_save_post" class="button-primary" value="Save Post" />&nbsp;
@@ -37,9 +36,26 @@
             <span id="show_sp_error_msg"></span>        	
         </td>
 	</tr>
-	
+	<tr valign="top">
+    	<th scope="row"><span class="r2plabel">Post Status</span></th>
+		<td>
+        	<select id="post_status" name="post_status">
+            	<option value="draft" selected="selected">draft</option>
+                <option value="publish">publish</option>
+				<option value="pending">pending</option>
+				<option value="future">future</option>
+				<option value="private">private</option>
+            </select>
+        </td>
+	</tr>        	
+	<tr valign="top">
+    	<th scope="row"><span class="r2plabel">Post Date</span></th>
+		<td>
+        	<input type="checkbox" name="post_date" id="post_date" />&nbsp;&nbsp;<strong><span id="article_date"></span></strong><br /><strong><em>Check if you want to use Article's date as the Blog Post date ir uncheck to use the current date. <br />If the article doesn't have a date, then the current date will be used instead.</em></strong>
+        </td>
+	</tr>        	
     <tr valign="top">
-    	<th scope="row"><span class="r2plabel">Page Title</span></th>
+    	<th scope="row"><span class="r2plabel">Post Title</span></th>
 		<td>
         	<div id="titlewrap">
 		        <input class="r2ptextbox" type="text" name="post_title" size="30" value="" id="post_title" autocomplete="off">
@@ -47,7 +63,7 @@
         </td>
 	</tr>
 	<tr valign="top">
-    	<th scope="row"><span class="r2plabel">Page Content</span></th>
+    	<th scope="row"><span class="r2plabel">Post Content</span></th>
 		<td>
         	
 				<?php
@@ -61,7 +77,7 @@
         </td>
 	</tr>
     <tr valign="top">
-    	<th scope="row"><span class="r2plabel">Page Excerpt</span></th>
+    	<th scope="row"><span class="r2plabel">Post Excerpt</span></th>
 		<td>
         	<div id="titlewrap">
 		        <textarea rows="1" cols="40" name="post_excerpt" id="post_excerpt"></textarea>
@@ -69,7 +85,7 @@
         </td>
 	</tr>
     <tr valign="top">
-    	<th scope="row"><span class="r2plabel">Page Author</span></th>
+    	<th scope="row"><span class="r2plabel">Post Author</span></th>
 		<td>
         	<div id="titlewrap">
 		        <?php
@@ -84,7 +100,7 @@
         </td>
 	</tr>    
     <tr valign="top">
-    	<th scope="row"><span class="r2plabel">Page Category</span></th>
+    	<th scope="row"><span class="r2plabel">Post Category</span></th>
 		<td>
         	<div id="titlewrap">
 		        <?php
@@ -101,6 +117,13 @@
 				?>
             </div>
         </td>
+	</tr>
+ 	<tr valign="top">
+    	<th scope="row"><span class="r2plabel">Post Tags</span></th>
+		<td>
+        	<div id="titlewrap">
+		        <input class="r2ptextbox" type="text" name="post_tag" size="30" value="" id="post_tag" autocomplete="off"><br /><strong><em>Separate tags by comma ex: tag 1, tag2, etc.,</em></strong>
+            </div>
+        </td>
 	</tr>    
 </table>
-
