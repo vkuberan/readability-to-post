@@ -50,12 +50,17 @@ jQuery(document).ready( function($){
 		} else {
 			sp_content = $('#post_content').val();
 		}
-				
+		
+		var sp_post_status = $("#post_status").val();		
+		var sp_post_date   = $('#post_date').is(':checked');
+		var sp_post_tag    = $("#post_tag").val();
+		
 		$.ajax({
           type:'POST',
-          data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content, post_author: sp_author, post_category: sp_category},
+          data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content, post_author: sp_author, post_category: sp_category, post_status: sp_post_status, post_date: sp_post_date, post_tag: sp_post_tag},
           url: ajax_vars.ajaxurl,
           success: function(value) {
+			  alert(value);
 			if( value >= 1 ) {
 				alert('Created new Post' );
 			}

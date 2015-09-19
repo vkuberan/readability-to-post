@@ -78,6 +78,8 @@ if( !class_exists('R2P' )) {
 			$post_author  	   = isset($_POST['post_author']) ? trim($_POST['post_author']) : 1; //if author is not selected default to the admin => 1
 			$post_category     = isset($_POST['post_category']) ? $_POST['post_category'] : ''; //if category is not selected default to the admin => 1
 			
+			print_r($_POST);
+			exit;
 			if ($post_category == '') {
 				$save_post = array(
 					'post_title'    => $post_title,
