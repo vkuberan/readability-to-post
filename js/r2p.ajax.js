@@ -23,6 +23,7 @@ jQuery(document).ready( function($){
 				} else {
 					$('#post_content').val(jsonValue.content);
 				}
+				$('#post_excerpt').html(jsonValue.excerpt);
 			}			
 			$('#r2p_parse_now').removeAttr('disabled');
 			$('#show_progressbar_button').css('display', 'none');

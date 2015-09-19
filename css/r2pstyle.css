@@ -55,3 +55,10 @@ padding: 3px 8px;
 width:50%;
 font-variant:normal !important;
 }
+#post_excerpt {
+width:50%;
+height:60px;
+}
+#wp-post_content-wrap {
+    width:65% !important;
+}

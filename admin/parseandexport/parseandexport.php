@@ -60,5 +60,42 @@
             
         </td>
 	</tr>
+    <tr valign="top">
+    	<th scope="row"><span class="r2plabel">Page Excerpt</span></th>
+		<td>
+        	<div id="titlewrap">
+		        <textarea rows="1" cols="40" name="post_excerpt" id="post_excerpt"></textarea>
+            </div>
+        </td>
+	</tr>
+    <tr valign="top">
+    	<th scope="row"><span class="r2plabel">Page Author</span></th>
+		<td>
+        	<div id="titlewrap">
+		        <?php
+					$args = array(
+						'selected' => 1,
+						'name' => 'post_author',
+						'id'   => 'post_author'
+					);
+					wp_dropdown_users($args);
+				?>
+            </div>
+        </td>
+	</tr>    
+    <tr valign="top">
+    	<th scope="row"><span class="r2plabel">Page Category</span></th>
+		<td>
+        	<div id="titlewrap">
+		        <?php
+					$args = array(
+						'name' => 'post_category',
+						'id'   => 'post_category'
+					);
+					wp_dropdown_categories($args);
+				?>
+            </div>
+        </td>
+	</tr>    
 </table>
 
