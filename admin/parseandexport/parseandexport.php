@@ -41,7 +41,8 @@
     	<th scope="row"><span class="r2plabel">Page Content</span></th>
 		<td>
         	
-				<?php 
+				<?php
+					add_filter( 'wp_default_editor', create_function('', 'return "html";') ); 
 					$settings = array(
 					);	
 					$content = '';			
