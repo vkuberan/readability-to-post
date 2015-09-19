@@ -23,7 +23,8 @@ if( !class_exists('R2P' )) {
 				//add ajax to parse the url
 				add_action( 'admin_enqueue_scripts', array( $this, 'addAjax2Page' ) );
 				//real action takes place here	
-				add_action( 'wp_ajax_trigger_readability', array( $this, 'callReadability' ) );			
+				add_action( 'wp_ajax_trigger_readability', array( $this, 'callAjaxReadability' ) );	
+				add_action( 'wp_ajax_trigger_savepost', array( $this, 'callAjaxSavePost' ) );			
 			}
 		}
 		
@@ -52,7 +53,7 @@ if( !class_exists('R2P' )) {
   			wp_localize_script( 'r2pAH', 'ajax_vars', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		}
 		
-		public function callReadability() {
+		public function callAjaxReadability() {
 			require 'lib/restclient.php';			
 			$base_url          = 'https://www.readability.com/';
 			$url_to_parse  	   = isset($_REQUEST['posturl']) ? urlencode( $_REQUEST['posturl'] ) : '';
@@ -69,6 +70,9 @@ if( !class_exists('R2P' )) {
 				echo $result->response;
 			}
 			die;
+		}
+		
+		public function callAjaxSavePost() {
 		}
 	}
 }
