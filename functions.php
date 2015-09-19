@@ -75,17 +75,33 @@ if( !class_exists('R2P' )) {
 		public function callAjaxSavePost() {
 			$post_title  	   = isset($_POST['post_title']) ? wp_strip_all_tags( $_POST['post_title'] ) : '';
 			$post_content  	   = isset($_POST['post_content']) ? $_POST['post_content'] : '';
+			$post_author  	   = isset($_POST['post_author']) ? trim($_POST['post_author']) : 1; //if author is not selected default to the admin => 1
+			$post_category     = isset($_POST['post_category']) ? $_POST['post_category'] : ''; //if category is not selected default to the admin => 1
 			
-			$save_post = array(
-  				'post_title'    => $post_title,
-  				'post_content'  => $post_content,
-  				'post_status'   => 'publish',
-  				'post_author'   => 1,
-  				'post_category' => array( 55579 )
-			);
+			if ($post_category == '') {
+				$save_post = array(
+					'post_title'    => $post_title,
+					'post_content'  => $post_content,
+					'post_status'   => 'publish',
+					'post_author'   => $post_author,
+					'post_category' => array()
+				);
+			} else {
+				$save_post = array(
+					'post_title'    => $post_title,
+					'post_content'  => $post_content,
+					'post_status'   => 'publish',
+					'post_author'   => $post_author,
+					'post_category' => $post_category
+				);
+			}
 			
 			$result = wp_insert_post( $save_post );
-			echo $result;
+			if (is_wp_error( $result )) {
+				echo -1;
+			} else {
+				echo $result;
+			}
 			exit;
 		}
 	}

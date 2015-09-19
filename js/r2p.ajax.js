@@ -41,7 +41,9 @@ jQuery(document).ready( function($){
 		$('#show_sp_error_msg').css('display', 'none');
 		var sp_title   = $('#post_title').val();
 		var sp_content = '';
-
+		var sp_author = $('#post_author').val();
+		var sp_category = $("#post_category").val();
+		
 		if( tinymce.editors.length >= 1 ) {
 			sp_content = tinyMCE.activeEditor.getContent();
 		} else {
@@ -50,10 +52,12 @@ jQuery(document).ready( function($){
 				
 		$.ajax({
           type:'POST',
-          data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content},
+          data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content, post_author: sp_author, post_category: sp_category},
           url: ajax_vars.ajaxurl,
           success: function(value) {
-			
+			if( value >= 1 ) {
+				alert('Created new Post' );
+			}
 			$('#r2p_save_post').removeAttr('disabled');
 			$('#show_progressbar_sp').css('display', 'none');
           }

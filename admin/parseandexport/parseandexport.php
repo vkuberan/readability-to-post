@@ -90,9 +90,14 @@
 		        <?php
 					$args = array(
 						'name' => 'post_category',
-						'id'   => 'post_category'
+						'id'   => 'post_category',
+						'hide_empty' => 0,
+						'echo' => 0 
 					);
-					wp_dropdown_categories($args);
+					
+					$post_cats = wp_dropdown_categories($args);
+					$post_cats = str_replace('<select', '<select multiple="multiple"', $post_cats );
+					echo $post_cats;
 				?>
             </div>
         </td>
