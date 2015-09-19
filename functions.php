@@ -56,7 +56,7 @@ if( !class_exists('R2P' )) {
 		public function callAjaxReadability() {
 			require 'lib/restclient.php';			
 			$base_url          = 'https://www.readability.com/';
-			$url_to_parse  	   = isset($_REQUEST['posturl']) ? urlencode( $_REQUEST['posturl'] ) : '';
+			$url_to_parse  	   = isset($_POST['posturl']) ? urlencode( $_POST['posturl'] ) : '';
 			$readability_token = get_option('r2p_setting_token', '');
 			$endpoint_url      = $base_url . "api/content/v1/parser?url=$url_to_parse&token=$readability_token";
 			$api = new RestClient(array(
@@ -73,6 +73,20 @@ if( !class_exists('R2P' )) {
 		}
 		
 		public function callAjaxSavePost() {
+			$post_title  	   = isset($_POST['post_title']) ? wp_strip_all_tags( $_POST['post_title'] ) : '';
+			$post_content  	   = isset($_POST['post_content']) ? $_POST['post_content'] : '';
+			
+			$save_post = array(
+  				'post_title'    => $post_title,
+  				'post_content'  => $post_content,
+  				'post_status'   => 'publish',
+  				'post_author'   => 1,
+  				'post_category' => array( 5579 )
+			);
+			
+			$result = wp_insert_post( $save_post );
+			echo $result;
+			exit;
 		}
 	}
 }

@@ -38,11 +38,17 @@ jQuery(document).ready( function($){
 		$('#show_progressbar_sp').css('display', 'block');
 		$('#show_sp_error_msg').css('display', 'none');
 		var sp_title   = $('#post_title').val();
-		var sp_content = $('#post_content').val();
+		var sp_content = '';
 
+		if( tinymce.editors.length >= 1 ) {
+			sp_content = tinyMCE.activeEditor.getContent();
+		} else {
+			sp_content = $('#post_content').val();
+		}
+				
 		$.ajax({
           type:'POST',
-          data:{action:'trigger_savepost', title: sp_title, content: sp_content},
+          data:{action:'trigger_savepost', post_title: sp_title, post_content: sp_content},
           url: ajax_vars.ajaxurl,
           success: function(value) {
 			alert(value)
